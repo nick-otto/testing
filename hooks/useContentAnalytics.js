@@ -12,7 +12,20 @@ export default function useContentAnalytics() {
         }
     }
 
+    const updateContentAnalytics = async (id, status) => {
+        try {
+            const response = await $fetch(`/api/analytics-content/${id}`, {
+                method: 'PATCH',
+                body: status
+            })
+            return response
+        } catch (error) {
+            return console.log(error)
+        }
+    }
+
     return {
-        getContentAnalytics
+        getContentAnalytics,
+        updateContentAnalytics
     }
 }

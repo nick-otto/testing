@@ -99,6 +99,7 @@
                       :id="content.id"
                       :isEnabled="content.status"
                       @toggle="content.status = $event"
+                      @click="updateContentAnalytics(content.id, content.status)"
                   />
 
                   <img
@@ -218,7 +219,8 @@ const {
 } = useTitleAnalytics()
 
 const {
-  getContentAnalytics
+  getContentAnalytics,
+  updateContentAnalytics
 } = useContentAnalytics()
 
 const {
